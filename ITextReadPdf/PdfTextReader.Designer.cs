@@ -35,6 +35,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,14 +53,14 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(105, 3);
+            this.textBox1.Location = new System.Drawing.Point(120, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(713, 27);
+            this.textBox1.Size = new System.Drawing.Size(815, 27);
             this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(824, 3);
+            this.button1.Location = new System.Drawing.Point(941, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 27);
             this.button1.TabIndex = 2;
@@ -79,17 +80,17 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel1.SetColumnSpan(this.richTextBox1, 4);
+            this.tableLayoutPanel1.SetColumnSpan(this.richTextBox1, 5);
             this.richTextBox1.Location = new System.Drawing.Point(3, 43);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ShowSelectionMargin = true;
-            this.richTextBox1.Size = new System.Drawing.Size(1022, 1017);
+            this.richTextBox1.Size = new System.Drawing.Size(1387, 1017);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(926, 3);
+            this.button2.Location = new System.Drawing.Point(1058, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 27);
             this.button2.TabIndex = 5;
@@ -100,31 +101,42 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1028, 1063);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1393, 1063);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(1175, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(151, 28);
+            this.comboBox1.TabIndex = 6;
             // 
             // PdfTextReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1028, 1063);
+            this.ClientSize = new System.Drawing.Size(1393, 1063);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PdfTextReader";
             this.Text = "PDF text extractor";
@@ -143,5 +155,6 @@
         private RichTextBox richTextBox1;
         private Button button2;
         private TableLayoutPanel tableLayoutPanel1;
+        private ComboBox comboBox1;
     }
 }

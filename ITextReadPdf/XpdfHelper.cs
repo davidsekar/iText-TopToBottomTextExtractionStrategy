@@ -1,0 +1,53 @@
+﻿using ITextReadPdf.Model;
+using ITextReadPdf.Service;
+using ITextReadPdf.Service.DirectoryService;
+using ITextReadPdf.Service.RuntimeInformation;
+
+namespace ITextReadPdf;
+
+public class XpdfHelper
+{
+    private readonly IDirectoryService directoryService;
+    private string filename;
+    private XpdfParameter parameter;
+    private string workingDirectory;
+    private string arguments;
+
+    public XpdfHelper()
+    {
+        IRuntimeInformation runtimeInformation = new MyRuntimeInformation();
+        this.directoryService = DirectoryServiceFactory.GetDirectoryService(runtimeInformation);
+    }
+
+    public string ToText(string pdfFilePath, string arguments = "")
+    {
+        this.PrepareParameters(pdfFilePath, arguments);
+
+        var processService = new ProcessService(filename, this.arguments, workingDirectory);
+        processService.StartAndWaitForExit();
+
+        var textResult = GetTextResult(this.parameter);
+
+        return textResult;
+    }
+
+    private static string GetTextResult(XpdfParameter parameter)
+    {
+        string textResult = File.ReadAllText(parameter.OutputFilename);
+        File.Delete(parameter.OutputFilename);
+
+        return textResult;
+    }
+
+    private void PrepareParameters(string pdfFilePath, string arguments = "")
+    {
+        this.filename = this.directoryService.Filename;
+        this.workingDirectory = this.directoryService.WorkingDirectory;
+
+        this.parameter = this.directoryService.GetParameter(pdfFilePath);
+
+        this.arguments = this.directoryService.GetArguments(this.parameter);
+
+        this.arguments += $" {arguments}";
+    }
+}

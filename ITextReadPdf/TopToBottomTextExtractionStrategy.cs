@@ -50,6 +50,7 @@ public class TopToBottomTextExtractionStrategy : ITextExtractionStrategy
                         _currentTextBlock.Content.Append($"\n == Order Change [{x0.Get(1)} > {x1.Get(1)}] == \n");
                     // There seems to be change in the order make it as a new block
                     _textBlocks.Add(_currentTextBlock, _currentTextBlock);
+                    //var distBetweenTextBlocks = 
                     secondaryOrderCount++;
                     _currentTextBlock = new PdfTextBlocks
                     {
@@ -65,6 +66,7 @@ public class TopToBottomTextExtractionStrategy : ITextExtractionStrategy
                     if (_debug)
                         _currentTextBlock.Content.Append($"\n == Large Gaps [{dist} >= {2 * sameLineThreshold}] == \n");
                     _textBlocks.Add(_currentTextBlock, _currentTextBlock);
+                    secondaryOrderCount = 1;
                     _currentTextBlock = new PdfTextBlocks
                     {
                         StartX = (int) Math.Floor(x0.Get(0)),
@@ -114,7 +116,7 @@ public class TopToBottomTextExtractionStrategy : ITextExtractionStrategy
     {
         var buf = new StringBuilder();
         if (_currentTextBlock.Content.Length > 0) _textBlocks.Add(_currentTextBlock, _currentTextBlock);
-        foreach (var sortedBlock in _textBlocks) buf.AppendLine(sortedBlock.Value.ToString());
+        foreach (var sortedBlock in _textBlocks) buf.Append(sortedBlock.Value);
         Reset();
         return buf.ToString();
     }

@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="pdftotext.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="itext7" Version="7.2.2" />
   </ItemGroup>
 
