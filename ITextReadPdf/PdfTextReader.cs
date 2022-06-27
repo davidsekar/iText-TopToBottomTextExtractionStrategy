@@ -43,12 +43,11 @@ public partial class PdfTextReader : Form
             var reader = new PdfReader(openFileDialog1.FileName);
 
             var pdfDocument = new PdfDocument(reader);
-            var strategy = new SimpleTextExtractionStrategy();
             var pagesCount = pdfDocument.GetNumberOfPages();
 
             for (var i = 1; i <= pagesCount; i++)
             {
-                var text = PdfTextExtractor.GetTextFromPage(pdfDocument.GetPage(i), strategy);
+                var text = PdfTextExtractor.GetTextFromPage(pdfDocument.GetPage(i), new SimpleTextExtractionStrategy());
                 richTextBox1.Text += text;
             }
         }
@@ -61,14 +60,12 @@ public partial class PdfTextReader : Form
         {
             var reader = new PdfReader(openFileDialog1.FileName);
             var pdfDocument = new PdfDocument(reader);
-
-            var strategy = new TopToBottomTextExtractionStrategy();
-
             var pagesCount = pdfDocument.GetNumberOfPages();
 
             for (var i = 1; i <= pagesCount; i++)
             {
-                var text = PdfTextExtractor.GetTextFromPage(pdfDocument.GetPage(i), strategy);
+                var text = PdfTextExtractor.GetTextFromPage(pdfDocument.GetPage(i),
+                    new TopToBottomTextExtractionStrategy());
                 richTextBox1.Text += text;
             }
         }

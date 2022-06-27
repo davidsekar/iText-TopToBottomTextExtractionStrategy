@@ -117,18 +117,6 @@ public class TopToBottomTextExtractionStrategy : ITextExtractionStrategy
         var buf = new StringBuilder();
         if (_currentTextBlock.Content.Length > 0) _textBlocks.Add(_currentTextBlock, _currentTextBlock);
         foreach (var sortedBlock in _textBlocks) buf.Append(sortedBlock.Value);
-        Reset();
         return buf.ToString();
-    }
-
-    /// <summary>
-    ///     Reset current page buffer
-    /// </summary>
-    public void Reset()
-    {
-        _currentTextBlock = new PdfTextBlocks();
-        firstRender = true;
-        _textBlocks.Clear();
-        secondaryOrderCount = 1;
     }
 }
